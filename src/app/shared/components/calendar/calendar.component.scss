@@ -1,0 +1,31 @@
+@import "./src/app/colors";
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+td {
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+  border: solid black 1px;
+  position: relative;
+}
+
+i {
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px;
+}
+
+i.started {
+  color: $calendar-yellow;
+}
+
+i.complete {
+  color: $calendar-green;
+}

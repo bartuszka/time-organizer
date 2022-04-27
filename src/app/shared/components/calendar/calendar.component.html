@@ -1,0 +1,13 @@
+<table>
+  <tr *ngFor="let row of rows">
+    <td
+      *ngFor="let day of getDaysForRow(row)"
+      [class.started]="day.started"
+      [class.complete]="day.complete"
+    >
+      <div>{{ day.dayInMonth }}</div>
+      <i *ngIf="day.started && !day.complete" class='fas fa-arrow-alt-circle-right started'></i>
+      <i *ngIf="day.complete" class='fas fa-thumbs-up complete'></i>
+    </td>
+  </tr>
+</table>
