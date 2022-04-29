@@ -7,7 +7,7 @@ import { getUtcDate } from "./shared/functions/get-utc-date";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public currentDate;
+  public currentDate: Date;
 
   public ngOnInit(): void {
     this.currentDate = getUtcDate(new Date());
