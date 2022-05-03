@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile-ts": "tsc",
     "run-server": "nodemon backend/server.js",
-    "start-server-backend": "npm run compile-ts && npm run run-server"
+    "start-backend": "npm run compile-ts && npm run run-server"
   },
   "author": "Bart",
   "license": "ISC",

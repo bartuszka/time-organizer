@@ -7,6 +7,8 @@ import { CalendarService } from "./shared/components/calendar/calendar.service";
 import { HttpClientModule } from "@angular/common/http";
 import { ApiService } from "./shared/services/api.service";
 import { ErrorService } from "./shared/services/error.service";
+import { ErrorModule } from "./shared/components/errors/error.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ErrorService } from "./shared/services/error.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ErrorModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     CalendarService,

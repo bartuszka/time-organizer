@@ -1,6 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 html {
+  font-family: Arial, sans-serif;
   background: url("assets/img/background/service-background.jpg");
   background-position-x: center;
+}
+
+button.primary {
+  margin: 3px;
+  padding: 7px;
+  background-color: white;
+  border: solid goldenrod 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+button.primary:hover {
+  background-color: gold;
 }

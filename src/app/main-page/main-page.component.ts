@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {CalendarDay} from "../shared/components/calendar/models/calendar-day";
 import {CalendarService} from "../shared/components/calendar/calendar.service";
-import {Observable, pluck, tap} from "rxjs";
+import {Observable, pluck} from "rxjs";
 
 @Component({
   selector: 'app-main-page',
@@ -21,9 +21,6 @@ export class MainPageComponent implements OnInit {
 
   public ngOnInit() {
     this.selectedDays$ = this.calendarService.calendarState$
-      .pipe(
-        tap(data => console.log('**', data)),
-        pluck('selectedDays')
-      );
+      .pipe(pluck('selectedDays'));
   }
 }

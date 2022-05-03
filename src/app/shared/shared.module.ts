@@ -10,7 +10,7 @@ import { CommonModule } from "@angular/common";
     CalendarComponent
   ],
   declarations: [
-    CalendarComponent
+    CalendarComponent,
   ]
 })
 export class SharedModule {}
