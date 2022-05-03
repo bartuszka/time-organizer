@@ -1,0 +1,27 @@
+<div
+  [@backdropShowState]="modalState"
+  class="background-cover"></div>
+<div
+  [@modalShowState]="modalState"
+  (@modalShowState.done)="onAnimationEnd()"
+  class="container">
+  <div
+    class="close-button"
+    (click)="close()">&#10006;</div>
+  <h1 id="header">
+    <ng-content select="[modal-title]"></ng-content>
+  </h1>
+  <div id="content">
+    <ng-content select="[modal-content]"></ng-content>
+  </div>
+  <button
+    *ngIf="closeButtonLabel"
+    (click)="close()"
+    type="button"
+    class="primary">{{ closeButtonLabel }}</button>
+  <button
+    *ngIf="customButtonLabel"
+    (click)="customAction()"
+    type="button"
+    class="primary">{{ customButtonLabel }}</button>
+</div>

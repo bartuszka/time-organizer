@@ -1,0 +1,61 @@
+$close-button-space: 40px;
+
+:host {
+  text-align: center;
+}
+
+.background-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.container {
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  padding: 25px;
+  position: absolute;
+  border-radius: 5px;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+}
+
+.close-button {
+  display: inline;
+  line-height: $close-button-space;
+  font-size: 18px;
+  width: $close-button-space;
+  height: $close-button-space;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: transform .5s ease-in-out;
+}
+
+.close-button:hover {
+  transform: rotate(180deg) scale(1.4);
+}
+
+#header {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+}
+
+#content {
+  height: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer {
+  height: 25px;
+}

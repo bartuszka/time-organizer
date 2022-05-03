@@ -1,10 +1,11 @@
-export interface DefaultEndpointInterface {
-  defaultEndpointInterface?: DefaultEndpointInterface;
-}
 export interface EndpointQuery {
   [ param: string ]: string | number | boolean;
 }
-export interface EndpointBody extends DefaultEndpointInterface {}
+
+export interface EndpointBody {
+  [ key: string ]: any;
+}
+
 export interface EndpointReturnedData {
   endpointUrl: string;
   query?: EndpointQuery;
@@ -19,5 +20,3 @@ export enum RequestMethod {
   PATCH = 'PATCH',
   DELETE = 'DELETE',
 }
-
-export type EndpointFunction = (query?: any, body?: any) => EndpointReturnedData;

@@ -1,2 +1,2 @@
 <h2>Main Page Works</h2>
-<app-calendar [currentYear]="2022" [currentMonth]="4" [selectedDays]="selectedDays$ | async"></app-calendar>
+<app-calendar [currentYear]="2022" [currentMonth]="4" [selectedDays]="(selectedDays$ | async)!"></app-calendar>

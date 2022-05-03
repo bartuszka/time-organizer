@@ -1,11 +1,12 @@
-import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import {
   EndpointReturnedData,
   RequestMethod
 } from "../../../endpoints/types/endpoint.types";
 import { Injectable } from "@angular/core";
-import { catchError, EMPTY, Observable } from "rxjs";
+import { catchError, EMPTY, Observable, throwError } from "rxjs";
 import { ErrorService } from "./error.service";
+import { GeneralErrorComponent } from "../components/errors/general-error/general-error.component";
 
 @Injectable()
 export class ApiService {
@@ -17,17 +18,24 @@ export class ApiService {
   public request<T>(endpointData: EndpointReturnedData): Observable<T> {
     let queryParams: HttpParams = new HttpParams();
 
-    if (endpointData.query) {
-      Object.keys(endpointData.query).forEach((key: string) => queryParams = queryParams.append(key, endpointData.query[key]));
+    if (!!endpointData.query) {
+      Object.keys(endpointData.query!).forEach((key: string) => queryParams = queryParams.append(key, endpointData.query![key]));
     }
 
     if (endpointData.method === RequestMethod.GET) {
       return this.http.get<T>(endpointData.endpointUrl, { params: queryParams })
         .pipe(
           catchError((error: HttpErrorResponse) => {
-            console.log(this.errorService.isGeneralError(error));
-            console.log('ERROR');
-            return EMPTY;
+            if (this.errorService.isGeneralError(error)) {
+              this.errorService.showErrorModal({
+                component: GeneralErrorComponent,
+                closeButtonLabel: 'OK',
+                customButtonLabel: 'Retry',
+                callback: () => console.log('ABC')
+              });
+              return EMPTY;
+            }
+            return throwError(() => error);
           })
         );
     }

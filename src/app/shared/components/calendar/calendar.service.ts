@@ -21,7 +21,7 @@ export class CalendarService {
   }
 
   public getDaysForMonth(): Observable<CalendarDay[]> {
-    return this.apiService.request<{ days: CalendarDay[] }>(endpointCalendar({ year: 1, month: 3 }))
+    return this.apiService.request<{ days: CalendarDay[] }>(endpointCalendar({ year: 1, month: 3 }, { year: 1, month: 3 }))
       .pipe(
         tap(data => console.log(data)),
         pluck('days')

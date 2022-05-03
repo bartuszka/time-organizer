@@ -1,0 +1,8 @@
+<app-error-modal
+  [closeButtonLabel]="closeButtonLabel"
+  [customButtonLabel]="customButtonLabel"
+  (closeModal)="close()"
+  (executeCustomAction)="onExecuteCustomAction()">
+  <ng-container modal-title>An error occurred</ng-container>
+  <ng-container modal-content>An unknown error occurred</ng-container>
+</app-error-modal>
